@@ -1,0 +1,39 @@
+package libro;
+// Demostración de la clase JLabel
+import java.awt.FlowLayout; // especifica cómo se van a ordenar los componentes
+import javax.swing.JFrame; // proporciona las características básicas de una ventana
+import javax.swing.JLabel; // proporciona las características básicas de una ventana
+import javax.swing.SwingConstants; // constantes comunes utilizadas con Swing
+import javax.swing.Icon; // interfaz utilizada para manipular imágenes
+import javax.swing.ImageIcon; // carga las imágenes
+
+public class Unidad_11_4_1 extends JFrame
+{
+    private JLabel etiqueta1;
+    private JLabel etiqueta2;
+    private JLabel etiqueta3;
+    
+    public Unidad_11_4_1()
+    {
+        super( "Prueba de JLabel" );
+        setLayout( new FlowLayout() ); // establece el esquema del marco
+        // Constructor de JLabel con un argumento String
+        etiqueta1 = new JLabel( "Etiqueta con texto" );
+        etiqueta1.setToolTipText( "Esta es etiqueta1" );
+        add( etiqueta1 ); // agrega etiqueta1 a JFrame
+
+        // Constructor de JLabel con argumentos de cadena, Icono y alineación
+        Icon insecto = new ImageIcon( getClass().getResource( "insecto1.jpg" ) );
+        etiqueta2 = new JLabel( "Etiqueta con texto e icono", insecto,SwingConstants.LEFT );
+        etiqueta2.setToolTipText( "Esta es etiqueta2" );
+        add( etiqueta2 ); // agrega etiqueta2 a JFrame
+
+        etiqueta3 = new JLabel(); // Constructor de JLabel sin argumentos
+        etiqueta3.setText( "Etiqueta con icono y texto en la parte inferior" );
+        etiqueta3.setIcon( insecto ); // agrega icono a JLabel
+        etiqueta3.setHorizontalTextPosition( SwingConstants.CENTER );
+        etiqueta3.setVerticalTextPosition( SwingConstants.BOTTOM );
+        etiqueta3.setToolTipText( "Esta es etiqueta3" );
+        add( etiqueta3 ); // agrega etiqueta3 a JFrame
+    }// fin del constructor de LabelFrame
+}// fin de la clase LabelFrame
